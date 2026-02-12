@@ -1,0 +1,38 @@
+
+/* WARNING: Function: __SEH_prolog4 replaced with injection: SEH_prolog4 */
+/* WARNING: Function: __SEH_epilog4 replaced with injection: EH_epilog3 */
+/* Library Function - Single Match
+    __fcloseall
+   
+   Library: Visual Studio 2010 Release */
+
+int __cdecl __fcloseall(void)
+
+{
+  FILE *_File;
+  int iVar1;
+  int iVar2;
+  int local_20;
+  
+  local_20 = 0;
+  __lock(1);
+  for (iVar2 = 3; iVar2 < DAT_0045b860; iVar2 = iVar2 + 1) {
+    if (*(int *)(DAT_0045a840 + iVar2 * 4) != 0) {
+      _File = *(FILE **)(DAT_0045a840 + iVar2 * 4);
+      if ((_File->_flag & 0x83) != 0) {
+        iVar1 = _fclose(_File);
+        if (iVar1 != -1) {
+          local_20 = local_20 + 1;
+        }
+      }
+      if (0x13 < iVar2) {
+        DeleteCriticalSection((LPCRITICAL_SECTION)(*(int *)(DAT_0045a840 + iVar2 * 4) + 0x20));
+        _free(*(void **)(DAT_0045a840 + iVar2 * 4));
+        *(undefined4 *)(DAT_0045a840 + iVar2 * 4) = 0;
+      }
+    }
+  }
+  FUN_0043ed91();
+  return local_20;
+}
+

@@ -1,0 +1,31 @@
+
+int __thiscall FUN_00423820(void *this,int param_1)
+
+{
+  int *piVar1;
+  int iVar2;
+  int iVar3;
+  void *local_10;
+  undefined1 *puStack_c;
+  undefined4 local_8;
+  
+  puStack_c = &LAB_00446bc0;
+  local_10 = ExceptionList;
+  ExceptionList = &local_10;
+  local_8 = 0;
+                    /* WARNING: Load size is inaccurate */
+  (**(code **)(*this + 0x40))(&param_1,0,0,0,DAT_00457600 ^ (uint)&stack0xfffffffc);
+  iVar3 = param_1;
+  local_8 = 0xffffffff;
+  piVar1 = (int *)(param_1 + -4);
+  LOCK();
+  iVar2 = *piVar1;
+  *piVar1 = *piVar1 + -1;
+  UNLOCK();
+  if (iVar2 == 1 || iVar2 + -1 < 0) {
+    (**(code **)(**(int **)(param_1 + -0x10) + 4))((undefined4 *)(param_1 + -0x10));
+  }
+  ExceptionList = local_10;
+  return iVar3;
+}
+
