@@ -38,8 +38,8 @@ The vehicle exposes services on TCP Port **6801**. To allow external tools or ot
 ### Diagram
 ```mermaid
 graph LR
-    Client[External Tool/Client] -- TCP 6801 --> Proxy[Your Application]
-    Proxy -- TCP 6801 --> Car[Vehicle (169.254.x.y)]
+    Client["External Tool/Client"] -- TCP 6801 --> Proxy["Your Application"]
+    Proxy -- TCP 6801 --> Car["Vehicle (169.254.x.y)"]
 ```
 
 ## 3. Implementation Steps (Pseudocode)
